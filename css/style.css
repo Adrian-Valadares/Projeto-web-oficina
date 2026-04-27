@@ -803,13 +803,13 @@ h3 {
 /* ===== FIM MOBILE ====== */
 
 
-.footer {
+.footer a {
   width: 100%;
   padding: 50px 20px;
   background: #0b0f17;
 
   color: #bebebe;
-  font-size: 0.55rem;
+  font-size: 0.50em;
   text-align: center;
   letter-spacing: 1px;
 
