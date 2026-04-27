@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto+Slab:wght@100..900&display=swap');
 
-/* RESET */
+/* RESETE GERAL */
 * {
   margin: 0;
   padding: 0;
@@ -28,60 +28,94 @@ html {
 }
 
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* HEADER */
+/* HEADER  */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 115px;
-  background: rgb(29, 29, 29);
+  height: 90px;
+
+  background: rgba(29, 29, 29, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding: 0 40px;
+
   z-index: 100;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  
 }
 
-/* LOGO */
+/* LOGO CORRIGIDA (SEM ESTOURAR) */
 .logo {
-  width: 190px;
+  width: 155px;
+  max-width: 100%;
   height: auto;
+  object-fit: contain;
   display: block;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
-
 .logo:hover {
   transform: scale(1.05);
 }
 
-/* MENU */
+
+
+/* MENU CENTRAL */
 .nav {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 50px;
+  gap: 30px;
 }
-
 .nav a {
-  font-size: 1.2rem;
-  color: var(--text-color);
-  padding: 8px 15px;
-  display: inline-block;
-  transition: 0.3s;
+  font-size: 1.3rem;
+  color: #f1f1f1;
+  padding: 6px 25px;
+  position: relative;
+  transition: 0.3s ease;
+  font-weight: 400;
 }
 
-.nav a:hover {
-  transform: scale(1.2);
-  color: var(--main-color);
-  text-decoration: underline;
+
+/* EFEITO LINHA ANIMADA NAV */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--main-color);
+  transition: 0.3s ease;
+  transform: translateX(-50%);
 }
+.nav a:hover {
+  color: var(--main-color);
+  transform: translateY(-2px);
+}
+.nav a:hover::after {
+  width: 100%;
+}
+
+
 
 /* ================= HOME ================= */
-
 .home {
   position: relative;
   overflow: hidden;
@@ -115,6 +149,7 @@ header {
 
 /* CONTEÚDO TEXTO */
 .home-content {
+  padding-top: 6%;
   max-width: 40%;
 }
 
@@ -122,13 +157,13 @@ header {
 .home-content h1 {
   font-weight: 550;
   line-height: 1.4;
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   margin-bottom: 15px;
 }
 
 .home-content h3 {
   font-weight: 550;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   line-height: 1.4;
   color: var(--main-color);
   letter-spacing: 1px;
@@ -136,7 +171,7 @@ header {
 
 /* TEXTO */
 .home-content p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin-top: 2rem;
   font-weight: 320;
   line-height: 1.3;
@@ -149,10 +184,15 @@ header {
   color: var(--main-color);
   font-weight: bold;
 }
-
+.localizacao {
+  padding-bottom: 7%;
+  
+}
 .endereco {
   color: var(--main-color);
+  font-size: 1.3rem;
   text-decoration: underline;
+  
 }
 
 /* IMAGENS */
@@ -174,12 +214,11 @@ h3 {
 
 /* ================= FIM HOME ================= */
 
-/* ================= SERVIÇOS ================= */
 
-/* SEÇÃO */
-/* =========================
-   SERVIÇOS (REFINADO)
-========================= */
+
+
+/* =================  INICIO SERVIÇOS ================= */
+
 .servicos {
   padding: 110px 20px;
   background: linear-gradient(180deg, #b9b9b9, #a9a9a9);
@@ -187,7 +226,7 @@ h3 {
 }
 
 .servicos h2 {
-  font-size: 2.6rem;
+  font-size: 3rem;
   margin-bottom: 60px;
   color: #111;
   letter-spacing: 1px;
@@ -203,15 +242,13 @@ h3 {
   margin: 0 auto;
 }
 
-/* =========================
-   CARD (COMPATÍVEL COM JS)
-========================= */
+/* ======== CARD ======== */
 .card {
   position: relative;
   background: #1c1c1c;
   border-radius: 16px;
   overflow: hidden;
-  cursor: pointer;
+  cursor: default;
 
   /* IMPORTANTE: mantém JS funcionando */
   opacity: 0;
@@ -240,6 +277,7 @@ h3 {
 /* brilho metálico melhorado */
 .card::before {
   content: "";
+  pointer-events: none;
   position: absolute;
   top: -120%;
   left: -60%;
@@ -262,6 +300,7 @@ h3 {
 
 /* leve camada interna mais profissional */
 .card::after {
+  pointer-events: none;
   content: "";
   position: absolute;
   inset: 2px;
@@ -306,8 +345,49 @@ h3 {
   line-height: 1.5;
   text-align: center;
 }
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: #25D366;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+
+  margin: 0 18px 20px;
+
+  transition: all 0.3s ease;
+
+  /* IMPORTANTE: mantém acima das camadas do card */
+  position: relative;
+  z-index: 3;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.btn-whatsapp img {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+}
+/* ================= FIM SERVICOS ================= */
+
+
+
+
 /* =========================
-   WHATSAPP (mantido)
+   BOTAO GLOBAL WHATSAPP (flutuante)
 ========================= */
 .whatsapp-container {
   position: fixed;
@@ -377,3 +457,365 @@ h3 {
   }
 }
 
+/* ===== INICIO CONTATO ====== */
+.contatos {
+  padding: 200px 20px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.contatos h2 {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: #fcd434;
+}
+
+/* LAYOUT */
+.contato-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* =========================
+   INFO
+========================= */
+.contato-info {
+  text-align: left;
+}
+
+.contato-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #fcd434;
+}
+
+.contato-info p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+/* BOTÃO */
+.btn-maps {
+  display: inline-block;
+  margin-top: 10px;
+
+  background: #fcd434;
+  color: #111;
+
+  padding: 12px 18px;
+  border-radius: 8px;
+
+  font-weight: bold;
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.btn-maps:hover {
+  transform: translateY(-2px);
+  background: #ffd84d;
+}
+
+/* ====== MAPA =========== */
+.contato-mapa iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 16px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  transition: 0.4s ease;
+}
+
+.contato-mapa iframe:hover {
+  transform: scale(1.02);
+}
+/* ===== FIM CONTATO ====== */
+
+
+/* ===== INICIO SOBRE ====== */
+.sobre {
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 10% 9%;
+  background: #1f242d;
+}
+
+/* IMAGEM */
+.sobre-img img {
+  width: 500px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* TEXTO */
+.sobre-content {
+  max-width: 600px;
+}
+
+.sobre-content h3 {
+  color: #f1c40f;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.sobre-content h1 {
+  font-size: 2.4rem;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.sobre-content span {
+  color: #f1c40f;
+}
+
+.sobre-content p {
+  color: #b0b0b0;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+/* ENDEREÇO */
+.sobre-location {
+  margin-top: 10px;
+}
+
+.endereco {
+  color: #f1c40f;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.endereco:hover {
+  color: #fff;
+}
+/* ===== FIM SOBRE ====== */
+
+
+
+/* ======Menu toggle =========== */
+.menu-icon {
+  font-size: 2.2rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  z-index: 1001;
+  transition: 0.3s;
+}
+
+/* EFEITO HOVER */
+.menu-icon:hover {
+  transform: scale(1.1);
+  color: var(--main-color);
+}
+
+/* ANIMAÇÃO (vira X) */
+.menu-icon.active i::before {
+  content: "\f00d"; /* ícone X (Boxicons) */
+}
+
+
+/* =========================
+   TABLET INICIO DA RESPONSIVIDADE
+========================= */
+@media (max-width: 992px) {
+
+  .home {
+    flex-direction: column;
+    text-align: center;
+    padding: 120px 40px;
+  }
+
+  .home-content {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .sobre {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-content {
+    max-width: 100%;
+  }
+
+  .contato-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== FIM TABLET ====== */
+
+
+/* ===== INICIO MOBILE ====== */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    padding: 0 20px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .menu-icon {
+    display: block;
+    z-index: 1001;
+  }
+
+  
+  .nav {
+    position: fixed; 
+    top: 90px;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    background: #1d1d1d;
+    padding: 25px 0;
+
+    transform: translateY(-150%);
+    transition: 0.3s ease;
+
+    z-index: 1000;
+  }
+
+  .nav.active {
+    transform: translateY(0);
+  }
+
+  .nav a {
+    font-size: 1.1rem;
+  }
+
+  /* ================= HOME ================= */
+
+  .home {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+  }
+
+  .home-content {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .home-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .home-content p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .home-img img {
+    max-width: 300px;
+    margin-top: 20px;
+  }
+
+  /* ================= SOBRE ================= */
+
+  .sobre {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-content {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .about-img img {
+    width: 280px;
+  }
+
+  /* ================= CONTATO ================= */
+
+  .contato-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contato-mapa iframe {
+    height: 280px;
+  }
+
+  /* ================= SERVIÇOS ================= */
+
+  .servicos h2 {
+    font-size: 2rem;
+  }
+
+  .servicos-container {
+    gap: 25px;
+  }
+
+  /* ================= WHATSAPP ================= */
+
+  .whatsapp-float {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .home-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .home-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .about-content h1 {
+    font-size: 1.6rem;
+  }
+
+}
+/* ===== FIM MOBILE ====== */
+
+
+.footer {
+  width: 100%;
+  padding: 50px 20px;
+  background: #0b0f17;
+
+  color: #bebebe;
+  font-size: 0.55rem;
+  text-align: center;
+  letter-spacing: 1px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -74,3 +74,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach(card => observer.observe(card));
 });
+
+// botao flutuante
+window.addEventListener("load", () => {
+  const btn = document.querySelector(".whatsapp-container");
+
+  btn.style.opacity = "0";
+
+  setTimeout(() => {
+    btn.style.opacity = "1";
+    btn.style.animation = "whatsappEntry 0.8s ease-out";
+  }, 1950);
+});
+
+// menu toggle
+const menuIcon = document.getElementById("menu-icon");
+const navMenu = document.getElementById("nav-menu");
+const navLinks = document.querySelectorAll(".nav a");
+
+// abre/fecha no ícone
+menuIcon.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+  menuIcon.classList.toggle("active");
+});
+
+// fecha ao clicar em qualquer link
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+    menuIcon.classList.remove("active");
+  });
+});
