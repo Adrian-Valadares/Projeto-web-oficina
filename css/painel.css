@@ -1,0 +1,269 @@
+/* =========================
+   CONTAINER
+========================= */
+.painel-container{
+    width:100%;
+    max-width:100%;
+    margin-top:110px;
+    padding:10px;
+}
+
+/* =========================
+   CARD
+========================= */
+.painel-card{
+    width:100%;
+    background:#1f242d;
+    border-radius:16px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    min-height:calc(100vh - 140px);
+}
+
+/* =========================
+   TITULO
+========================= */
+.painel-title{
+    color:#fcd434;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.usuario{
+    color:#d4d4d4;
+    margin-bottom:20px;
+}
+
+/* =========================
+   BOTÃO
+========================= */
+.btn-nova{
+    display:inline-block;
+    background:#fcd434;
+    color:#111;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+    margin-bottom:25px;
+    transition:.3s;
+}
+
+.btn-nova:hover{
+    transform:translateY(-2px);
+}
+
+/* =========================
+   FILTRO
+========================= */
+.filtro{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.filtro label{
+    color:white;
+}
+
+.filtro input{
+    padding:10px;
+    border-radius:8px;
+}
+
+.filtro button{
+    background:#fcd434;
+    color:#111;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+   TABELA (CORRETO)
+========================= */
+.tabela {
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+/* LINHAS GERAIS (VERTICAL + HORIZONTAL) */
+.tabela th,
+.tabela td {
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+/* CABEÇALHO */
+.tabela th {
+    background:#fcd434;
+    color:#111;
+    padding:15px;
+    text-align:left;
+    border: 1px solid rgba(0,0,0,0.15);
+}
+
+/* CÉLULAS */
+.tabela td {
+    padding:15px;
+    color:white;
+    vertical-align:top;
+
+    white-space:normal;
+    overflow-wrap:break-word;
+    word-break:normal;
+}
+
+/* ZEBRA (mantém leve pra não poluir visual) */
+.tabela tr:nth-child(even){
+    background:#252b36;
+}
+
+.tabela tr:nth-child(odd){
+    background:#1f242d;
+}
+
+/* hover mais forte */
+.tabela tr:hover{
+    background:#323a48;
+}
+
+
+/* =========================
+   VALOR
+========================= */
+.valor{
+    color:#00ff88;
+    font-weight:bold;
+    font-size:1.05rem;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+.btn-editar,
+.btn-excluir{
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:4px;
+    white-space:nowrap;
+}
+
+.btn-editar{
+    background:#0d6efd;
+    color:white;
+}
+
+.btn-excluir{
+    background:#dc3545;
+    color:white;
+}
+
+.btn-editar:hover,
+.btn-excluir:hover{
+    opacity:.9;
+}
+
+/* =========================
+   TOTAL
+========================= */
+.total{
+    margin-top:25px;
+    color:#fcd434;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+/* =========================
+   PAGINAÇÃO
+========================= */
+.paginacao{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:30px;
+}
+
+.paginacao a{
+    background:#252b36;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 15px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.paginacao a:hover{
+    background:#fcd434;
+    color:#111;
+}
+
+.paginacao .ativo{
+    background:#fcd434;
+    color:#111;
+    font-weight:bold;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media(max-width:900px){
+
+    .painel-container{
+        padding:5px;
+    }
+
+    .painel-card{
+        padding:15px;
+    }
+
+    .filtro{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .filtro input,
+    .filtro button{
+        width:100%;
+    }
+
+    .tabela{
+        display:block;
+        overflow-x:auto;
+    }
+
+    .btn-editar,
+    .btn-excluir{
+        display:block;
+        text-align:center;
+        margin:5px 0;
+    }
+
+    .tabela td:nth-child(3){
+        width:auto;
+    }
+}
+
+/* =========================
+   TELAS GRANDES (TV)
+========================= */
+@media(min-width:1600px){
+
+    .painel-card{
+        max-width:1400px;
+        margin:0 auto;
+        padding:40px;
+    }
+
+    .tabela th,
+    .tabela td{
+        padding:20px;
+        font-size:1.05rem;
+    }
+}

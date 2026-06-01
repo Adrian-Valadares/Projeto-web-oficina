@@ -8,11 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   // estado inicial
-  items.forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(40px)";
-    el.style.transition = "all 0.8s ease";
-  });
+ 
 
   const animate = () => {
     items.forEach((el, index) => {
@@ -39,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, {
-    threshold: 0.3
+    threshold: 0.3  
   });
 
   observer.observe(home);

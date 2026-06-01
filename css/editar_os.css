@@ -1,0 +1,126 @@
+.os-container{
+    width:100%;
+    min-height:100vh;
+    padding:130px 30px 40px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    background:#0b0f17;
+}
+
+.os-card{
+    width:100%;
+    max-width:900px;
+    background:#1f242d;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.os-title{
+    color:#fcd434;
+    font-size:2rem;
+    margin-bottom:30px;
+    text-align:center;
+}
+
+.os-card form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.os-card label{
+    color:#fff;
+    font-size:1rem;
+    font-weight:600;
+}
+
+.os-card input,
+.os-card textarea{
+    width:100%;
+    background:#2a313d;
+    border:2px solid transparent;
+    color:#fff;
+    padding:14px 16px;
+    border-radius:10px;
+    font-size:1rem;
+    transition:.3s;
+}
+
+.os-card input:focus,
+.os-card textarea:focus{
+    border-color:#fcd434;
+    box-shadow:0 0 15px rgba(252,212,52,.25);
+}
+
+.os-card textarea{
+    min-height:180px;
+    resize:vertical;
+}
+
+.os-card button{
+    margin-top:15px;
+    background:#fcd434;
+    color:#111;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.os-card button:hover{
+    transform:translateY(-2px);
+    background:#ffd84d;
+}
+input[type="date"]{
+    background:#1f242d;
+    color:#fff;
+    padding:10px;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:8px;
+}
+
+/* Ícone do calendário (Chrome, Edge, Safari) */
+input[type="date"]::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+    cursor:pointer;
+.btn-voltar{
+    display:inline-block;
+    margin-top:15px;
+    background:#343a46;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn-voltar:hover{
+    background:#424b59;
+}
+
+@media(max-width:768px){
+
+    .os-container{
+        padding:110px 15px 20px;
+    }
+
+    .os-card{
+        padding:20px;
+    }
+
+    .os-title{
+        font-size:1.6rem;
+    }
+
+    .os-card input,
+    .os-card textarea,
+    .os-card button{
+        font-size:.95rem;
+    }
+}

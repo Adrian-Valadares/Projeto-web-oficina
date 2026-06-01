@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto+Slab:wght@100..900&display=swap');
 
 /* RESETE GERAL */
+.home-content h1,
+.home-content h3,
+.home-content p,
+.home-img img {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+  will-change: transform, opacity;
+}
+
 * {
   margin: 0;
   padding: 0;
