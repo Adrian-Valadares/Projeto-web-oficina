@@ -71,6 +71,7 @@ $result = $conn->query($sql);
 
         <a href="index.html">Site</a>
         <a href="painel.php">Ordens de Serviço</a>
+       
 
         <?php if($_SESSION['cargo'] == 'admin'): ?>
             <a href="nova_os.php">Nova OS</a>
@@ -104,6 +105,31 @@ Usuário: <?= $_SESSION['usuario'] ?>
 <input type="date" name="data_fim" value="<?= $_GET['data_fim'] ?? '' ?>">
 
 <button type="submit">Filtrar</button>
+<?php 
+$temFiltro = !empty($_GET['data_inicio']) && !empty($_GET['data_fim']);
+?>
+
+<?php if($temFiltro): ?>
+
+<a
+    href="exportar_pdf.php?data_inicio=<?= $_GET['data_inicio'] ?>&data_fim=<?= $_GET['data_fim'] ?>"
+    class="btn-nova"
+>
+📄 Exportar PDF
+</a>
+
+<?php else: ?>
+
+<a
+    href="#"
+    onclick="alert('Selecione as datas antes de exportar!'); return false;"
+    class="btn-nova blocked"
+    title="Você precisa selecionar as datas antes de exportar o PDF"
+>
+📄 Exportar PDF
+</a>
+
+<?php endif; ?>
 
 </form>
 
